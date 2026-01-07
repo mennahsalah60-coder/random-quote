@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const displayQuotes = (quote) => {
         quotesCountainer.innerHTML = `
         <header class="text-content ">
-            <h2 class="p-3 text-light">Random Quote Generator</h2>
+            <h1 class="p-3 text-light">Random Quote Generator</h1>
         </header>
                 <div class="quote">
-                    <h5 class="random-quote p-3">"${quote.quote}"</h5>
-                    <p class="quote-author pt-3 pb-1">- ${quote.author}</p>
+                    <h5 class="random-quote ps-3 pe-3 pt-4">"${quote.quote}"</h5>
+                    <p class="quote-author pt-2 pb-3 pe-2">- ${quote.author}</p>
                 </div>
                 <div class="btns pb-2">
                     <button class="generate-btn btn pt-2">
@@ -29,8 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </svg>
                         <p>Copy</p>
                     </button>
-        </div>
-    `
+        </div>`
 
         document.querySelector(".generate-btn")
             .addEventListener("click", generateRandomQuote);
