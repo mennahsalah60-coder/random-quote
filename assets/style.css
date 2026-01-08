@@ -4,8 +4,9 @@ body {
 
 .quotes-container {
     width: 100%;
-    max-width: 650px;
-    min-height: 250px;
+    max-width: 600px;
+    min-height: 200px;
+    height: auto;
     margin-inline: auto;
     margin-top: 12%;
     font-family: 'Tektur', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -25,73 +26,69 @@ body {
 
     .text-content h1 {
         background-color: rgba(74, 111, 165, 1);
-        border-radius: 15px 15px 0px 0px;
+        border-radius: 10px 10px 0px 0px;
         font-size: 24px;
-        font-weight: 700;
+        font-weight: 600;
     }
 
     .quote-author {
         margin-left: 70%;
         color: rgba(102, 102, 102, 1);
         font-size: 16px;
+        margin-top: 10px;
+        font-weight: bold;
     }
 
     .random-quote {
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 30px;
-        max-height: 300px;
+        font-weight: 300;
+        text-align: center;
+        font-size: 16px;
+        line-height: 1.5;
+        padding: 10px 20px;
+        color: #333;
     }
 
     .btns {
-        background-color: rgba(240, 242, 245, 1);
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        border-radius: 0px 0px 15px 15px;
-
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        background-color: #f0f2f5;
+        border-top: 1px solid #eee;
+        border-radius: 0px 0px 10px 10px;
 
         .generate-btn {
             background-color: rgba(74, 111, 165, 1);
-            display: grid;
-            grid-template-columns: .1fr 1fr;
-            width: 50%;
-            height: 60%;
-            margin-left: 60%;
-            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            max-height: 35px;
+            width: 22%;
 
             p {
-                font-size: 14px;
-                font-family: "Barlow", sans-serif;
-                font-weight: 700;
-                font-style: normal;
-            }
-
-            svg {
-                margin-top: 4px;
+                font-size: 13px;
             }
         }
 
         .copy-btn {
             background-color: rgba(224, 224, 224, 1);
-            display: grid;
-            grid-template-columns: .1fr 1fr;
-            gap: 10px;
-            width: 35%;
-            height: 60%;
-            margin-top: 15px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            max-height: 35px;
+            /* width: 1%; */
 
 
             p {
-                font-size: 14px;
-                font-family: "Barlow", sans-serif;
-                font-weight: 700;
-                font-style: normal;
+                font-size: 13px;
             }
 
-            svg {
-                margin-top: 5px;
-            }
         }
     }
 }
@@ -112,24 +109,13 @@ body {
             display: grid;
             grid-template-columns: 1fr;
             padding: 0px 10px;
-            gap: 0px;
-            padding-bottom: 0px !important;
 
             .generate-btn {
-                margin-left: 0px;
-                width: 100%;
-                display: grid;
-                grid-template-columns: 0fr .5fr;
-                padding-left: 35%;
+                justify-content: center;
             }
 
             .copy-btn {
-                width: 100%;
-                display: grid;
-                grid-template-columns: .1fr .1fr;
-                padding-left: 40%;
-                margin-top: 0px;
-                height: 70%;
+                justify-content: center;
             }
         }
     }
@@ -139,25 +125,6 @@ body {
 @media screen and (max-width: 320px) {
     .quote-author {
         margin-left: 30% !important;
-    }
-
-    .quotes-container {
-
-        .btns {
-            .generate-btn {
-                padding-left: 25% !important;
-                grid-template-columns: 0fr .7fr;
-
-                p {
-                    margin-left: -10%;
-                }
-
-                svg {
-                    margin-left: -20%;
-                }
-            }
-        }
-
     }
 
 }
