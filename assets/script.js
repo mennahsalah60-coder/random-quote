@@ -69,14 +69,14 @@ document.addEventListener("DOMContentLoaded", () => {
     displayQuotes(initialQuote)
 
     const getQuotesFromAPI = () => {
-        // fetch('https://dummyjson.com/quotes')
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         quotes = data.quotes.map(quote => ({
-        //             quote: quote.quote,
-        //             author: quote.author,
-        //         }))
-        //     })
+        fetch('https://dummyjson.com/quotes')
+            .then(res => res.json())
+            .then(data => {
+                quotes = data.quotes.map(quote => ({
+                    quote: quote.quote,
+                    author: quote.author,
+                }))
+            })
     }
     getQuotesFromAPI();
 });
