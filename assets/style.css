@@ -65,7 +65,7 @@ body {
             justify-content: center;
             gap: 8px;
             max-height: 35px;
-            width: 22%;
+            width: 25%;
 
             p {
                 font-size: 13px;
@@ -112,6 +112,7 @@ body {
 
             .generate-btn {
                 justify-content: center;
+                width: 100%;
             }
 
             .copy-btn {

@@ -5,14 +5,9 @@ const initialQuote = {
     author: "Steve Jobs",
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const generateRandomQuote = () => {
-        const randomIndex = Math.floor(Math.random() * quotes.length);
-        displayQuotes(quotes[randomIndex]);
-    };
-    const quotesCountainer = document.querySelector(".quotes-container")
-    const displayQuotes = (quote) => {
-        quotesCountainer.innerHTML = `
+const quotesCountainer = document.querySelector(".quotes-container")
+const displayQuotes = (quote) => {
+    quotesCountainer.innerHTML = `
         <header class="text-content ">
             <h1 class="p-3 text-light">Random Quote Generator</h1>
         </header>
@@ -39,44 +34,48 @@ document.addEventListener("DOMContentLoaded", () => {
                     </button>
         </div>`
 
-        document.querySelector(".generate-btn")
-            .addEventListener("click", generateRandomQuote);
+    const generateRandomQuote = () => {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        displayQuotes(quotes[randomIndex]);
+    };
 
-        document.querySelector(".copy-btn")
-            .addEventListener("click",
-                async () => {
-                    const quoteText = document.querySelector(".random-quote").innerText;
+    document.querySelector(".generate-btn")
+        .addEventListener("click", generateRandomQuote);
 
-                    try {
-                        await navigator.clipboard.writeText(quoteText);
+    document.querySelector(".copy-btn")
+        .addEventListener("click",
+            async () => {
+                const quoteText = document.querySelector(".random-quote").innerText;
 
-                        const btnText = document.querySelector(".copy-btn p");
-                        Swal.fire({
-                            text: "Quote copied successfully!",
-                            timer: 1500,
-                            customClass: {
-                                popup: 'my-popup'
-                            }
-                        })
-                        setTimeout(() => btnText.innerText = "Copy", 1500);
-                        console.log("Quote copied successfully!");
-                    } catch (err) {
-                        console.error("Copy failed", err);
-                        fallbackCopyText(quoteText);
-                    }
-                });
-    }
-    displayQuotes(initialQuote)
+                try {
+                    await navigator.clipboard.writeText(quoteText);
 
-    const getQuotesFromAPI = () => {
-        fetch('https://dummyjson.com/quotes')
-            .then(res => res.json())
-            .then(data => {
-                quotes = data.quotes.map(quote => ({
-                    quote: quote.quote,
-                    author: quote.author,
-                }))
-            })
-    }
-    getQuotesFromAPI();
-});
+                    const btnText = document.querySelector(".copy-btn p");
+                    Swal.fire({
+                        text: "Quote copied successfully!",
+                        timer: 1500,
+                        customClass: {
+                            popup: 'my-popup'
+                        }
+                    })
+                    setTimeout(() => btnText.innerText = "Copy", 1500);
+                    console.log("Quote copied successfully!");
+                } catch (err) {
+                    console.error("Copy failed", err);
+                    fallbackCopyText(quoteText);
+                }
+            });
+}
+displayQuotes(initialQuote)
+
+const getQuotesFromAPI = () => {
+    fetch('https://dummyjson.com/quotes')
+        .then(res => res.json())
+        .then(data => {
+            quotes = data.quotes.map(quote => ({
+                quote: quote.quote,
+                author: quote.author,
+            }))
+        })
+}
+getQuotesFromAPI();
